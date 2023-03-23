@@ -26,8 +26,9 @@ class UrlManager {
      * Разобрать путь url
      */
     private function parse(): void
-    {
-        $url = $this->getUrl();
+    {    
+        $url = $this->getUrl();        
+
         // отделить query часть
         $parts = explode('?', $url);
         

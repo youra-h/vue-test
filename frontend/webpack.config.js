@@ -76,7 +76,9 @@ module.exports = {
     historyApiFallback: true,
     noInfo: true,
     overlay: true,
+    // Запуск отдельным сервисом
     // host: 'localhost',
+    // Запуск в Docker контейнере
     host: '0.0.0.0',
     port: 3000
   },

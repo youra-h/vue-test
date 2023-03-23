@@ -4,7 +4,7 @@ namespace base;
 
 use helper\ArrayHelper;
 
-final class App
+ class App
 {
 
     /**

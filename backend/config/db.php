@@ -2,7 +2,7 @@
 
 return [
     'db' => [
-        'dsn' => 'mysql:host=localhost;dbname=vue-test',
+        'dsn' => 'mysql:host=mysql:3306;dbname=vue-test',
         'username' => 'root',
         'password' => 'root'
     ]

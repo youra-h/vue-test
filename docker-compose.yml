@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  fronend:
+    build: ./frontend    
+    restart: always
+    ports:
+      - '3000:3000'
+    volumes:
+      - /app/node_modules
+      - ./frontend:/app
+  backed:
+    # build: ./backed
+    # image: php:8.0.28-apache
+    image: yourah/php-apache-modrewrite
+    restart: always
+    ports:
+      - 80:80
+    depends_on:
+      - mysql
+    volumes:
+      - ./backend:/var/www/html    
+  mysql:
+    image: mysql
+    restart: always
+    volumes:
+      - ./backend/dump/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: vue-test
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - '8000:8080'
