@@ -1,0 +1,29 @@
+{
+    "Login": {
+        "remember-me": "Remember me",
+        "forgot-pass": "Forgot your password?",
+        "login": "Login",
+        "registration": "Registration",
+        "message": {
+            "pattern-password": "Password must be 6-12 characters",
+            "error-not-user": "User or password not found",
+            "enter-username": "Enter username / email",
+            "enter-password": "Enter password"
+        }
+    },
+
+    "PageError": {
+        "caption": {
+            "404": "Page not found"
+        },
+        "text" : {
+            "404": "The page you are looking for does not exist. How you got here is a mystery. But you can click the button below to go back to the homepage."
+        }
+    },
+
+    "caption": {
+        "user": "User",
+        "password": "Password",
+        "on-main": "Main"
+    }
+}

@@ -1,0 +1,14 @@
+Order Allow,Deny
+Allow from all
+
+AddDefaultCharset utf-8
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Если запрашиваемая в URL директория или файл существуют обращаемся к ним напрямую
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    # Если нет - перенаправляем запрос на index.php
+    RewriteRule . index.php
+</IfModule>
