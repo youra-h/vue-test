@@ -6,7 +6,8 @@ use base\App;
 use base\Response;
 use models\User;
 
-class UserController {
+class UserController
+{
 
     /**
      * Проверка входа
@@ -58,7 +59,7 @@ class UserController {
             return Response::error('Не вышло зарегистрировать пользователя');
         }
 
-        $message = 'http://localhost:8080/verify-email?token=' . $user->getVerificationToken();
+        $message = App::id()->getAppRoot() . '/verify-email?token=' . $user->getVerificationToken();
 
         $user->sendEmail('Подтверждение регистрация пользователя', $message);
 
@@ -89,7 +90,7 @@ class UserController {
 
         return Response::success('Пользователь успешно зарегистрировался');
     }
-    
+
     /**
      * Запрос на изменения пароля
      */
@@ -110,7 +111,7 @@ class UserController {
             return Response::error('Ошибка: не удалось сохранить данные');
         }
 
-        $message = 'http://localhost:8080/reset-password?token=' . $user->getPasswrodResetToken();
+        $message = App::id()->getAppRoot() . '/reset-password?token=' . $user->getPasswrodResetToken();
 
         $user->sendEmail('Изменить пароль', $message);
 
@@ -143,7 +144,7 @@ class UserController {
         // удалить старый токен
         $user->removePasswordResetToken();
 
-        if (!$user->save(['password_hash','password_reset_token'])) {
+        if (!$user->save(['password_hash', 'password_reset_token'])) {
             return Response::error('Ошибка: не удалось сохранить данные');
         }
 

@@ -5,7 +5,7 @@ namespace base;
 use Exception;
 
 class UrlManager {
-    const SERVER_KEY = 'REDIRECT_URL';
+    const SERVER_KEY = 'REQUEST_URI';
 
     public string $pathController = 'controller';
     /**

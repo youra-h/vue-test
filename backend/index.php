@@ -10,10 +10,11 @@ require __DIR__ . '/autoload.php';
 
 use base\App;
 
+$main = require './config/main.php';
 $db = require './config/db.php';
 $mailer  = require './config/mailer.php';
 
-$config = array_merge($db, $mailer);
+$config = array_merge($main, $db, $mailer);
 
 // Запустить приложение
 App::create($config)->run();

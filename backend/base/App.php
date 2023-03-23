@@ -4,7 +4,8 @@ namespace base;
 
 use helper\ArrayHelper;
 
-final class App {
+final class App
+{
 
     /**
      * @var App экземпляр объекта
@@ -32,7 +33,7 @@ final class App {
     public Mailer $mailer;
 
     private function __construct(array $config = [])
-    {        
+    {
         $this->config = $config;
 
         $this->request = new Request();
@@ -45,6 +46,16 @@ final class App {
         $mailc = ArrayHelper::getValue($config, 'mailer', []);
 
         $this->mailer = new Mailer($mailc);
+    }
+
+    /**
+     * Вернуть url app
+     * @return string
+     */
+    public function getAppRoot(): string
+    {
+        $main = ArrayHelper::getValue($this->config, 'main', []);
+        return ArrayHelper::getValue($main, 'app_root', '');
     }
 
     /**
