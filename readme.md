@@ -75,10 +75,3 @@ npm install
 **MYSQL**
 
 Выполнить sql скрипт из файла **backend/dump/init.sql**
-
-
-
-
-
-
-
